@@ -71,6 +71,19 @@ def detector_postprocess(
     if results.has("pred_keypoints"):
         results.pred_keypoints[:, :, 0] *= scale_x
         results.pred_keypoints[:, :, 1] *= scale_y
+    
+    if results.has("beziers"):
+        if results.has("points"):
+            scale_xy = [scale_x,scale_y]*4
+            scale_xy = torch.Tensor(scale_xy).cuda()
+            
+            results.beziers *= scale_xy
+            results.points *= scale_xy
+        else:
+            scale_xy = [scale_x,scale_y]*8
+            scale_xy = torch.Tensor(scale_xy).cuda()
+            
+            results.beziers *= scale_xy
 
     return results
 

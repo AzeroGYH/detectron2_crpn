@@ -1,0 +1,4 @@
+from .text_eval_script import text_eval_main
+from .text_evaluation_total_best import TextEvaluatorTotalBest
+from .text_evaluation_ctw import TextEvaluatorCTW
+from .text_evaluation_total import TextEvaluatorTOTAL
