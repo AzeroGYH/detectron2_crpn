@@ -1,0 +1,12 @@
+_BASE_: "../Two-Base-BAText.yaml"
+DATASETS:
+  TRAIN: ("stamp_train",)
+  TEST: ("stamp_test",)
+INPUT:
+  MIN_SIZE_TEST: 800
+  MAX_SIZE_TEST: 1333
+  # rotation
+  ROTATE:
+    ENABLED: False
+    ANGLE_TRAIN: (-20,20)
+    ANGLE_TRAIN_SAMPLING: 'range'

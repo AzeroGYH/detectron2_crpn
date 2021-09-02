@@ -1,0 +1,8 @@
+from .roi_heads_text_points import TextPointsROIHeads
+
+from .roi_heads_text import TextROIHeads
+from .roi_heads_text_inner_attention_fc import TextInnerAttentionFCROIHeads
+from .roi_heads_proposal_attention import TextPAttentionROIHeads
+from .roi_heads_proposal_inner_attention import TextPIAttentionROIHeads
+from .roi_heads_crowd_best_inner_attention_fc import TextCrowdedBestInnerAttentionFCROIHeads
+from .roi_heads_crowd_best_inner_attention_fc_combine import TextCrowdedBestInnerAttentionFCCombineROIHeads

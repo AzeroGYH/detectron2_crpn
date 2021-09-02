@@ -1,0 +1,12 @@
+_BASE_: "../Two-Base-BAText.yaml"
+DATASETS:
+  TRAIN: ("ctw1500_word_train",)
+  TEST: ("ctw1500_word_test",)
+INPUT:
+  MIN_SIZE_TEST: 800
+  MAX_SIZE_TEST: 1333
+  # rotation
+  ROTATE:
+    ENABLED: False
+    ANGLE_TRAIN: (-90,90)
+    ANGLE_TRAIN_SAMPLING: 'choice'

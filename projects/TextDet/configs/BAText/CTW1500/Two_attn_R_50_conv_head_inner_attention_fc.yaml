@@ -1,0 +1,39 @@
+_BASE_: "Two-Base-CTW1500.yaml"
+DATASETS:
+  TRAIN: ("ctw1500_word_train_with_ignore",)
+  TEST: ("ctw1500_word_just_test",)
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NAME: 'TextInnerAttentionFCROIHeads'
+    SCORE_THRESH_TEST: 0.7
+    NMS_THRESH_TEST: 0.35
+  ROI_BOX_HEAD:
+    NUM_CONV: 2
+    NUM_FC: 2
+SOLVER:
+  WARMUP_ITERS: 500
+  IMS_PER_BATCH: 1
+  BASE_LR: 0.0025
+  STEPS: (32000,100000)
+  MAX_ITER: 120000
+  CHECKPOINT_PERIOD: 1000
+INPUT:
+  CROP:
+    ENABLED: True
+  ROTATE:
+    ENABLED: False
+    ROTATE_TRAIN_PRO: 1.0
+    ANGLE_TRAIN: (-20,20)
+    ANGLE_TRAIN_SAMPLING: 'range'
+TEST:
+  EVAL_PERIOD: 1000
+  AUG:
+    ENABLED: False
+    FLIP: False
+    MAX_SIZE: 1600
+    MIN_SIZES: (640,800,1000,1200)
+OUTPUT_DIR: "output/batext/ablation/ctw_w_ignore/bezier_inner_attention_fc_gyh_0311"
+
